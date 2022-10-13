@@ -3,11 +3,12 @@ from landing import *
 from search import *
 from PIL import Image
 
+st.set_page_config(layout="wide")
 # st.session_state.update(st.session_state)
 
 if 'active_page' not in st.session_state:
     st.session_state.active_page = 'Landing'
-    st.session_state.Search = 0
+    # st.session_state.Search = ''
 
 def CB_Landing():
     st.session_state.active_page = 'Landing'

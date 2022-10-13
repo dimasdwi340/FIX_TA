@@ -59,12 +59,15 @@ class KNN_Classifier:
         import requests
         import browser_cookie3
         cookiejar = browser_cookie3.opera(domain_name='instagram.com')
-        data = requests.get(f'https://www.instagram.com/{username}/?__a=1&__d=dis', cookies = cookiejar).json()
-        return data
+        try:
+            data = requests.get(f'https://www.instagram.com/{username}/?__a=1&__d=dis', cookies = cookiejar).json()
+            return data
+        except :
+            return ValueError
 
     def get_data_profile(username):
         
-        data = KNN_Classifier.get_profile(username)   
+        data = KNN_Classifier.get_profile(username)  
         data_profile = data['graphql']['user']
         profile_pic = data_profile['profile_pic_url_hd']
         urllib.request.urlretrieve(f"{profile_pic}" , f"img/{username}.jpg")
@@ -86,6 +89,7 @@ class KNN_Classifier:
             bio = bio
             )
         return doc
+        
 
     def train_profile_classifier():
         col = db['influencer']
