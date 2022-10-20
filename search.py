@@ -132,14 +132,6 @@ def search():
                     left, center, right = st.columns((1,2,1))
                     with center:
                         st.error ('⛔ Tentu saja informasi yang kamu cari tidak ada disini')
-        # except ValueError:
-        #     st.error("Sepertinya Username yang kamu masukin kurang tepat🤔")
-        # except IndexError:
-        #     st.error("Sepertinya Username yang kamu masukin kurang tepat🤔")
-        # except KeyError:
-        #     st.error("Sepertinya Username yang kamu masukin kurang tepat🤔")
-        # except TypeError:
-        #     st.error("Sepertinya Username yang kamu masukin kurang tepat🤔")
         except :
             st.error("Sepertinya Username yang kamu masukin kurang tepat🤔")
     back = st.button("🔙")
