@@ -113,7 +113,7 @@ class KNN_Classifier:
             X.append(data['caption'])
             y.append(data['label'])
         X_train = count_vect.fit_transform(X)
-        tf_transformer = TfidfTransformer(use_idf=False).fit(X_train)
+        tf_transformer = TfidfTransformer().fit(X_train)
         X_train = tf_transformer.transform(X_train)
         clf = MultinomialNB().fit(X_train, y)
         list_caption = KNN_Classifier.get_caption(username)
